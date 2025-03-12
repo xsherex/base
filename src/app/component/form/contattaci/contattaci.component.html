@@ -1,0 +1,97 @@
+<div class="home">
+
+
+<h3>Contattaci</h3>
+
+<div class="container">
+  <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+
+      <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address" formControlName="address">
+
+    </div>
+
+    <div class="form-group">
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" class="form-control" id="mobile" formControlName="mobile">
+
+    </div>
+
+    <div class="form-group">
+      <label for="date">Birth Date</label>
+
+
+
+<!--
+      <mat-form-field class="example-full-width">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <input matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker> -->
+
+      <input type="datetime" class="form-control" id="date" formControlName="date">
+
+
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" class="form-control" id="age" formControlName="age">
+      <div *ngIf="userForm?.get('age')?.invalid && userForm?.get('age')?.touched" class="text-danger">
+        Please enter a valid age (between 18 and 100).
+      </div>
+    </div>
+
+
+      <!--
+
+    <div class="form-group">
+      <label for="gender">Select Gender</label>
+
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Option 1</mat-radio-button>
+        <mat-radio-button value="2">Option 2</mat-radio-button>
+      </mat-radio-group>
+
+      <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+      <label class="btn btn-secondary" for="option1">Male</label>
+      <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+      <label class="btn btn-secondary" for="option2">Female</label>
+      <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+      <label class="btn btn-secondary" for="option3">Other</label>
+
+      <select class="form-control" id="gender" formControlName="gender">
+        <option value="" disabled>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+
+
+    </div>-->
+
+    <button type="button" class="btn btn-outline-primary btn-lg">Iscriviti</button>
+  </form>
+</div>

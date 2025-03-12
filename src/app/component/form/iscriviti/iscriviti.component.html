@@ -1,0 +1,179 @@
+<div class="home">
+<h1>Iscriviti subito</h1>
+
+
+<form class="form-group needs-validation was-validated"  novalidate="" >
+  <div class="row g-2">
+    <div class="col-md">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="nome" placeholder="name" ngModel required minlength="5" maxlength="10" pattern="[a-zA-Z0-9]*">
+          <label for="nome">Name</label>
+          <div *ngIf="myForm.controls.username?.invalid && myForm.controls.username?.touched">
+            Username must be 5-10 characters long and contain only letters and numbers.
+          </div>
+      </div>
+    </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="cognome" required placeholder="cognome">
+          <label for="cognome">Cognome</label>
+        </div>
+      </div>
+    </div>
+        <div class="form-floating">
+          <input type="text" class="form-control" id="email" required placeholder="email">
+          <label for="email">Email</label>
+        </div>
+
+        <div class="form-floating">
+          <input type="text" class="form-control" id="address" required placeholder="address">
+          <label for="address">Indirizzo</label>
+        </div>
+
+        <div class="row g-2">
+        <div class="col-md-6" >
+          <div class="form-floating">
+          <input type="text" class="form-control" id="città" required placeholder="città">
+          <label for="città">Città</label>
+        </div>
+          </div>
+          <div class="col-md-4" >
+          <div class="form-floating">
+          <select class="form-select" id="regione" required aria-label="Floating label select example">
+            <option selected> </option>
+            <option value="1">Puglia</option>
+            <option value="2">Basilicata</option>
+            <option value="3">Calabria</option>
+          </select>
+          <label for="regione">Scegli la Regione</label>
+        </div>
+          </div>
+          <div class="col-md-2" bis_skin_checked="1">
+          <div class="form-floating">
+          <input type="text" class="form-control" id="cap" required placeholder="cap">
+          <label for="cap">CAP</label>
+        </div>
+          </div>
+        </div>
+
+        <div class="row g-2">
+          <div class="col-md">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="mobile" required placeholder="mobile">
+          <label for="mobile">Cellulare</label>
+        </div>
+          </div>
+
+
+            <div>
+          <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+            <div class="col-md">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="birth" required placeholder="birth">
+          <label for="birth">Anno di Nascita</label>
+        </div>
+            </div>
+        </div>
+
+        <div class="form-floating">
+          <input type="text" class="form-control" id="codice" required placeholder="codice">
+          <label for="codice">Codice Fiscale</label>
+        </div>
+
+        <div>
+          <label for="studio">Choose your gender</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="male" checked>
+            <label class="form-check-label" for="male">
+              Uomo
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="female" >
+            <label class="form-check-label" for="female">
+              Donna
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="other">
+            <label class="form-check-label" for="other">
+              Altro
+            </label>
+          </div>
+        </div>
+
+        <div class="form-floating">
+          <input type="password" class="form-control" id="password" required placeholder="password">
+          <label for="password">Password</label>
+          <div id="passwoordc" class="form-text">
+            La password deve contenere almeno 10 caratteri
+          </div>
+        </div>
+
+
+        <div class="col-12" bis_skin_checked="1">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+
+
+      </form>
+
+
+
+
+
+<!--
+<div class="container">
+  <form #userForm="ngForm" (ngSubmit)="submitForm(userForm)">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" [(ngModel)]="userDetails.name" required>
+      <div *ngIf="userForm.controls.name?.touched && userForm.controls.name?.invalid" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" [(ngModel)]="userDetails.email" required email>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address" name="address" [(ngModel)]="userDetails.address" required>
+    </div>
+
+    <div class="form-group">
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" class="form-control" id="mobile" name="mobile" [(ngModel)]="userDetails.mobile" required pattern="[0-9]{10}">
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" class="form-control" id="age" name="age" [(ngModel)]="userDetails.age" required min="20" max="60">
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <select class="form-control" id="gender" name="gender" [(ngModel)]="userDetails.gender" required>
+        <option value="" disabled>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</div>-->
